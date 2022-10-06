@@ -1,0 +1,161 @@
+//задание 2 страница 140
+var areArraysSame = function (arr1, arr2) {
+    if (arr1.length !== arr2.length) {
+      return false;
+    }
+    for (var i = 0; i < arr1.length; i++) {
+      if (arr1[i] !== arr2[i]) {
+        return false;
+      }
+    }
+    return true;
+  };
+  document.write((areArraysSame ([1, 2 , 3], [1, 2 , 3])));
+
+
+//Виселица страница 125 + 4 упражнения
+var words = [
+    "история",
+    "мышь",
+    "прекрасный",
+    "принцесса",
+    "дикобраз",
+    "таксист"
+  ];
+  var word = words[Math.floor(Math.random() * words.length)];
+  var answerArray = [];
+  for (var i = 0; i < word.length; i++) {
+    answerArray[i] = "_";
+  }
+  var remainingLetters = word.length;
+  var guesses = 20;
+  while (remainingLetters > 0 && guesses > 0) {
+    alert(answerArray.join(" "));
+    var guess = prompt("Угадайте букву, или нажмите Отмена для выхода из игры.");
+    if (guess === null) {
+      break;
+    } else if (guess.length !== 1) {
+      alert("Пожалуйста, введите одиночную букву.");
+    } else {
+      guesses--;
+      guess = guess.toLowerCase();
+      for (var j = 0; j < word.length; j++) {
+        if (word[j] === guess && answerArray[j] === "_") {
+          answerArray[j] = guess;
+          remainingLetters--;
+        }
+      }
+    }
+  }
+  alert(answerArray.join(" "));
+  if (guesses > 0) {
+    alert("Отлично! Было загадано слово " + word);
+  } else {
+    alert("Очень плохо! Было загадано слово " + word);
+  }
+
+
+
+
+
+// 3 задание на странице 140 
+var pickWord = function () {
+  var words = [
+    "история",
+    "мышь",
+    "прекрасный",
+    "принцесса",
+    "дикобраз",
+    "таксист"
+  ];
+
+  return words[Math.floor(Math.random() * words.length)];
+};
+
+var setupAnswerArray = function (word) {
+  var answerArray = [];
+  for (var i = 0; i < word.length; i++) {
+    answerArray[i] = "_";
+    }
+
+    return answerArray;
+  };
+
+  var showPlayerProgress = function (answerArray) {
+    alert(answerArray.join(" "));
+  };
+
+  var getGuess = function () {
+    return prompt("Угадайте букву, или нажмите Отмена для выхода из игры.");
+  };
+
+  var updateGameState = function (guess, word, answerArray) {
+    var appearances = 0;
+    for (var j = 0; j < word.length; j++) {
+      if (word[j] === guess) {
+        answerArray[j] = guess;
+        appearances++;
+      }
+    }
+
+    return appearances;
+  };
+
+  var showAnswerAndCongratulatePlayer = function (answerArray) {
+    showPlayerProgress(answerArray);
+    alert("Отлично! Было загадано слово " + answerArray.join(""));
+  };
+  var word = pickWord();
+  var answerArray = setupAnswerArray(word);
+  var remainingLetters = word.length;
+
+  while (remainingLetters > 0) {
+    showPlayerProgress(answerArray);
+    var guess = getGuess();
+    if (guess === null) {
+      break;
+    } else if (guess.length !== 1) {
+      alert("Пожалуйста, введите одиночную букву.");
+    } else {
+      var correctGuesses = updateGameState(guess, word, answerArray);
+      remainingLetters -= correctGuesses;
+    }
+  }
+
+  showAnswerAndCongratulatePlayer(answerArray);
+
+
+
+
+
+
+
+
+//страница 140
+//задание 1
+function add( a, b ) 
+{ c = a + b; 
+  return c;
+ }
+  function multiply( a, b ) 
+  { c = a * b; 
+    return c;
+   } 
+   result = add(multiply(36325, 9824), 777);
+   alert(result);
+
+
+//задание 2
+var areArraysSame = function (arr1, arr2) {
+  if (arr1.length !== arr2.length) {
+    return false;
+  }
+  for (var i = 0; i < arr1.length; i++) {
+    if (arr1[i] !== arr2[i]) {
+      return false;
+    }
+  }
+  return true;
+};
+document.write((areArraysSame ([arr1], [arr2])));
+
